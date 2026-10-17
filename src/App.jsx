@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import ProtectedRoute from './components/ProtectedRoute'
+import Layout from './components/Layout'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Clients from './pages/Clients'
@@ -11,38 +12,17 @@ export default function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route
-        path="/"
         element={
           <ProtectedRoute>
-            <Dashboard />
+            <Layout />
           </ProtectedRoute>
         }
-      /><Route
-        path="/clients"
-        element={
-          <ProtectedRoute>
-            <Clients />
-          </ProtectedRoute>
-        }
-      />
-        <Route
-  path="/appointments"
-  element={
-    <ProtectedRoute>
-      <Appointments />
-    </ProtectedRoute>
-  }
-
-      />
-      <Route
-  path="/calendar"
-  element={
-    <ProtectedRoute>
-      <CalendarPage />
-    </ProtectedRoute>
-  }
-/>
-
+      >
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/clients" element={<Clients />} />
+        <Route path="/appointments" element={<Appointments />} />
+        <Route path="/calendar" element={<CalendarPage />} />
+      </Route>
     </Routes>
   )
 }

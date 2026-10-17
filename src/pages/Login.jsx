@@ -24,27 +24,41 @@ export default function Login() {
     setSubmitting(false)
   }
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <h1>Autentificare</h1>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Parolă"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <button type="submit" disabled={submitting}>
-        {submitting ? 'Se conectează...' : 'Intră'}
-      </button>
-    </form>
+   return (
+    <div className="flex min-h-screen items-center justify-center px-4">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-sm space-y-4 rounded-2xl border border-line bg-surface p-6"
+      >
+        <h1 className="text-2xl font-bold">Autentificare</h1>
+
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="w-full rounded-xl border border-line bg-surface-2 px-4 py-3 outline-none placeholder:text-muted focus:border-accent"
+        />
+        <input
+          type="password"
+          placeholder="Parolă"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className="w-full rounded-xl border border-line bg-surface-2 px-4 py-3 outline-none placeholder:text-muted focus:border-accent"
+        />
+
+        {error && <p className="text-sm text-red-400">{error}</p>}
+
+        <button
+          type="submit"
+          disabled={submitting}
+          className="w-full rounded-xl bg-accent py-3 font-semibold transition hover:bg-accent-hover disabled:opacity-50"
+        >
+          {submitting ? 'Se conectează...' : 'Intră'}
+        </button>
+      </form>
+    </div>
   )
 }

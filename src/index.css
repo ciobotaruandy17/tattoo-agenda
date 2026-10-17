@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0b0f19;
+  --color-surface: #141925;
+  --color-surface-2: #1d2331;
+  --color-line: #262d3d;
+  --color-muted: #8b93a7;
+  --color-accent: #4f5fff;
+  --color-accent-hover: #6573ff;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: #fff;
+ font-family: 'Space Grotesk', sans-serif;
+}
+
+@theme {
+  --color-pink: #ec4899;
+}
+
+/* card cu contur degrade */
+.card {
+  border: 1px solid transparent;
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+    linear-gradient(
+      135deg,
+      rgba(79, 95, 255, 0.6),
+      rgba(255, 255, 255, 0.05) 45%,
+      rgba(236, 72, 153, 0.4)
+    ) border-box;
+}
+
+/* bloc pătrat cu degrade, pentru oră */
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, var(--color-accent), var(--color-pink));
+  box-shadow: 0 8px 24px -8px rgba(79, 95, 255, 0.6);
+}
